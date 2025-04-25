@@ -1,0 +1,325 @@
+account_id: footlocker-us
+cluster: us-1
+client_env:
+- eq:sandbox
+namespace: platform-prod
+project_id: footlocker-usp
+conversations:
+- conversation_id: PICK-MULTILINE-3-CANCELLED-1-PICKED-UP
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order
+    agent_response: Would you like me to help you track your order?
+  - user_input: 'yes'
+    agent_response: Could you please provide the [phone number] associated with your
+      order?
+  - user_input: i don't know
+    agent_response: No worries! Can you provide me with your [full order number]? It's
+      the long number that starts with a 'U' and can be found in your confirmation
+      email.
+  - user_input: U7298796189598617600
+    agent_response: I heard your full order number as [U7298796189598617600]. Is that
+      right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated
+      with your order?
+  - user_input: '48237'
+    agent_response: I heard your [billing zipcode] as [48237]. Is that right?
+  - user_input: 'yes'
+    agent_response: "I can see that your order for the Nike React Infinity 2 - Women's\
+      \ in size 07.0 has been cancelled. Unfortunately, this happened because the\
+      \ item is no longer available. \n\nBut don't worry! Any pending charge on your\
+      \ card will disappear within 5 to 7 business days, so you won't be charged for\
+      \ the purchase. \n\nIs there anything else I can help you with?"
+  function_calls:
+  - name: start_verify_user
+    arguments: {}
+  - name: lookup_order
+    arguments: {}
+  - name: try_collecting_order_number_instead
+    arguments: {}
+  - name: validate_full_order_number
+    arguments:
+      order_number: U7298796189598617600
+  - name: user_details_saved
+    arguments: {}
+  - name: validate_zipcode
+    arguments:
+      zipcode: '48237'
+  - name: user_details_saved
+    arguments: {}
+  - name: determine_order_status
+    arguments: {}
+- conversation_id: SHIP_MULTI_LOCATIONS
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order
+    agent_response: Would you like me to help you track your order?
+  - user_input: 'yes'
+    agent_response: Could you please provide the [phone number] associated with your
+      order?
+  - user_input: i don't know
+    agent_response: No worries! Can you provide me with your [full order number]? It's
+      the long number that starts with a 'U' and can be found in your confirmation
+      email.
+  - user_input: U7278816528013725696
+    agent_response: I heard your full order number as [U7278816528013725696]. Is that
+      right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated
+      with your order?
+  - user_input: '76015'
+    agent_response: I heard your [billing zipcode] as [76015]. Is that right?
+  - user_input: 'yes'
+    agent_response: Your order has shipped! It includes two pairs of Timberland 6" Premium Waterproof Boots in sizes 08.0 and 11.0. Would you like me to send you a text with the tracking link?
+  function_calls:
+  - name: start_verify_user
+    arguments: {}
+  - name: lookup_order
+    arguments: {}
+  - name: try_collecting_order_number_instead
+    arguments: {}
+  - name: validate_full_order_number
+    arguments:
+      order_number: U7278816528013725696
+  - name: user_details_saved
+    arguments: {}
+  - name: validate_zipcode
+    arguments:
+      zipcode: '76015'
+  - name: user_details_saved
+    arguments: {}
+  - name: determine_order_status
+    arguments: {}
+- conversation_id: MULTILINE_S2S
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order
+    agent_response: Would you like me to help you track your order?
+  - user_input: 'yes'
+    agent_response: Could you please provide the [phone number] associated with your
+      order?
+  - user_input: i don't know
+    agent_response: No worries! Can you provide me with your [full order number]? It's
+      the long number that starts with a 'U' and can be found in your confirmation
+      email.
+  - user_input: U7301294681025937408
+    agent_response: I heard your full order number as [U7301294681025937408]. Is that
+      right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated
+      with your order?
+  - user_input: '33019'
+    agent_response: I heard your [billing zipcode] as [33019]. Is that right?
+  - user_input: 'yes'
+    agent_response: Your order has shipped! It includes a pair of PUMA Defy Mid shoes in size 08.0 and a pair of Nike Air Max 90 shoes in size 05.5. Would you like me to send you a text with the tracking link?
+  function_calls:
+  - name: start_verify_user
+    arguments: {}
+  - name: lookup_order
+    arguments: {}
+  - name: try_collecting_order_number_instead
+    arguments: {}
+  - name: validate_full_order_number
+    arguments:
+      order_number: U7301294681025937408
+  - name: user_details_saved
+    arguments: {}
+  - name: validate_zipcode
+    arguments:
+      zipcode: '33019'
+  - name: user_details_saved
+    arguments: {}
+  - name: determine_order_status
+    arguments: {}
+- conversation_id: MULTI_CONSIGNMENT
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order
+    agent_response: Would you like me to help you track your order?
+  - user_input: 'yes'
+    agent_response: Could you please provide the [phone number] associated with your
+      order?
+  - user_input: i don't know
+    agent_response: No worries! Can you provide me with your [full order number]? It's
+      the long number that starts with a 'U' and can be found in your confirmation
+      email.
+  - user_input: U7303345383382454272
+    agent_response: I heard your full order number as [U7303345383382454272]. Is that
+      right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated
+      with your order?
+  - user_input: '10001'
+    agent_response: I heard your [billing zipcode] as [10001]. Is that right?
+  - user_input: 'yes'
+    agent_response: I can see there are a few items in your order. You've got the Nike Air Vapormax Plus in size 15 and color Black, and also the Nike Air Max 270 in size 7.5, also in Black. Is there a specific item you want to track?
+  function_calls:
+  - name: start_verify_user
+    arguments: {}
+  - name: lookup_order
+    arguments: {}
+  - name: try_collecting_order_number_instead
+    arguments: {}
+  - name: validate_full_order_number
+    arguments:
+      order_number: U7303345383382454272
+  - name: user_details_saved
+    arguments: {}
+  - name: validate_zipcode
+    arguments:
+      zipcode: '10001'
+  - name: user_details_saved
+    arguments: {}
+  - name: determine_order_status
+    arguments: {}
+- conversation_id: FRAUD_CANCEL
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order
+    agent_response: Would you like me to help you track your order?
+  - user_input: 'yes'
+    agent_response: Could you please provide the [phone number] associated with your
+      order?
+  - user_input: i don't know
+    agent_response: No worries! Can you provide me with your [full order number]? It's
+      the long number that starts with a 'U' and can be found in your confirmation
+      email.
+  - user_input: U7305694735463612416
+    agent_response: I heard your full order number as [U7305694735463612416]. Is that
+      right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated
+      with your order?
+  - user_input: '28117'
+    agent_response: I heard your [billing zipcode] as [28117]. Is that right?
+  - user_input: 'yes'
+    agent_response: Hm, it looks like I can't help with this order - let me transfer you to someone who can help. One second.
+  function_calls:
+  - name: start_verify_user
+    arguments: {}
+  - name: lookup_order
+    arguments: {}
+  - name: try_collecting_order_number_instead
+    arguments: {}
+  - name: validate_full_order_number
+    arguments:
+      order_number: U7305694735463612416
+  - name: user_details_saved
+    arguments: {}
+  - name: validate_zipcode
+    arguments:
+      zipcode: '28117'
+  - name: user_details_saved
+    arguments: {}
+  - name: determine_order_status
+    arguments: {}
+  - name: transfer_call
+    arguments: {}
+  - name: create_call_summary
+    arguments: {}
+  - name: end_function
+    arguments: {}
+- conversation_id: MULTILINE_SHIP
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order
+    agent_response: Would you like me to help you track your order?
+  - user_input: 'yes'
+    agent_response: Could you please provide the [phone number] associated with your
+      order?
+  - user_input: i don't know
+    agent_response: No worries! Can you provide me with your [full order number]? It's
+      the long number that starts with a 'U' and can be found in your confirmation
+      email.
+  - user_input: U7305857777824436224
+    agent_response: I heard your full order number as [U7305857777824436224]. Is that
+      right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated
+      with your order?
+  - user_input: '48601'
+    agent_response: I heard your [billing zipcode] as [48601]. Is that right?
+  - user_input: 'yes'
+    agent_response: I can see there are a few items in your order. You've got the Nike Air Vapormax Plus in size 15 and color Black, and also the Nike Air Max 270 in size 7.5, also in Black. Is there a specific item you want to track?
+  function_calls:
+  - name: start_verify_user
+    arguments: {}
+  - name: lookup_order
+    arguments: {}
+  - name: try_collecting_order_number_instead
+    arguments: {}
+  - name: validate_full_order_number
+    arguments:
+      order_number: U7305857777824436224
+  - name: user_details_saved
+    arguments: {}
+  - name: validate_zipcode
+    arguments:
+      zipcode: '48601'
+  - name: user_details_saved
+    arguments: {}
+  - name: determine_order_status
+    arguments: {}
+- conversation_id: PICK_MULTI_LOCATIONS
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order
+    agent_response: Would you like me to help you track your order?
+  - user_input: 'yes'
+    agent_response: Could you please provide the [phone number] associated with your
+      order?
+  - user_input: i don't know
+    agent_response: No worries! Can you provide me with your [full order number]? It's
+      the long number that starts with a 'U' and can be found in your confirmation
+      email.
+  - user_input: U7305877207069495296
+    agent_response: I heard your full order number as [U7305877207069495296]. Is that
+      right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated
+      with your order?
+  - user_input: '23950'
+    agent_response: I heard your [billing zipcode] as [23950]. Is that right?
+  - user_input: 'yes'
+    agent_response: I can see there are a few items in your order. You've got the Nike Air Vapormax Plus in size 15 and color Black, and also the Nike Air Max 270 in size 7.5, also in Black. Is there a specific item you want to track?
+  function_calls:
+  - name: start_verify_user
+    arguments: {}
+  - name: lookup_order
+    arguments: {}
+  - name: try_collecting_order_number_instead
+    arguments: {}
+  - name: validate_full_order_number
+    arguments:
+      order_number: U7305877207069495296
+  - name: user_details_saved
+    arguments: {}
+  - name: validate_zipcode
+    arguments:
+      zipcode: '23950'
+  - name: user_details_saved
+    arguments: {}
+  - name: determine_order_status
+    arguments: {}

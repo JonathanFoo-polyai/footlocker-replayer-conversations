@@ -1,6 +1,6 @@
 # footlocker-replayer-conversations
 
-Collections of conversations to be used against jupiter replayers.
+Collections of conversations to be used against Jupiter replayers.
 
 ## Usage instruction
 ```
