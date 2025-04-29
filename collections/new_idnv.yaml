@@ -25,9 +25,8 @@ conversations:
   - name: verify_phone_number
     arguments:
       phone_number: '6505555555'
-  - name: verify_phone_number
-    arguments:
-      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
 - conversation_id: PHONE_NUMBER_DENY_PHONE_NUMBER_AFFIRM
   variant_id: null
   language: en-US
@@ -52,12 +51,13 @@ conversations:
   - name: verify_phone_number
     arguments:
       phone_number: '6505555555'
+  - name: deny_phone_number_read_back
+    arguments: {}
   - name: verify_phone_number
     arguments:
       phone_number: '6505555555'
-  - name: verify_phone_number
-    arguments:
-      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
 - conversation_id: PHONE_NUMBER_INVALID_PHONE_NUMBER_AFFIRM
   variant_id: null
   language: en-US
@@ -83,9 +83,8 @@ conversations:
   - name: verify_phone_number
     arguments:
       phone_number: '6505555555'
-  - name: verify_phone_number
-    arguments:
-      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
 - conversation_id: PHONE_NUMBER_INVALID_X2_TRANSFER
   variant_id: null
   language: en-US
@@ -96,7 +95,7 @@ conversations:
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
   - user_input: '650123456'
     agent_response: Hmm, I'm [not sure I got that down right]. Can I have your [phone number] again, including the area code?
-  - user_input: '650123456'
+  - user_input: '650-123456'
     agent_response: Hmm, that [doesn't seem to be working]. I can try with your [order number] instead?
   - user_input: 'no, transfer me to someone'
     agent_response: Let me put you through to someone who can help. One sec.
@@ -132,7 +131,7 @@ conversations:
   - user_input: '4089040720'
     agent_response: I heard your [phone number] as [408-904-0720|4089040720]. Is that right?
   - user_input: 'no'
-    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+    agent_response: Ok, let me put you through to a team member, one moment please!
   function_calls:
   - name: track_user_order_new
     arguments: {}
@@ -141,9 +140,78 @@ conversations:
   - name: verify_phone_number
     arguments:
       phone_number: '4089040720'
+  - name: deny_phone_number_read_back
+    arguments: {}
   - name: verify_phone_number
     arguments:
       phone_number: '4089040720'
+  - name: deny_phone_number_read_back
+    arguments: {}
+  - name: transfer_call
+    arguments: {}
+  - name: create_call_summary
+    arguments: {}
+  - name: end_function
+    arguments: {}
+- conversation_id: PHONE_NUMBER_NOT_FOUND_PHONE_NUMBER_AFFIRM
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '1234567891'
+    agent_response: I heard your phone number as [123-456-7891|1234567891]. Is that right?
+  - user_input: 'yes'
+    agent_response: Hmm, I [can't find] an order with those details. Would you like to try again, using a different [phone number] or your [order number]?
+  - user_input: '2244654878'
+    agent_response: I heard your [phone number] as [224-465-4878|2244654878]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
   - name: verify_phone_number
     arguments:
-      phone_number: '6505555555'
+      phone_number: '1234567891'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '2244654878'
+  - name: save_phone_number
+    arguments: {}
+- conversation_id: PHONE_NUMBER_NOT_FOUND_PHONE_NUMBER_NOT_FOUND
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '1234567891'
+    agent_response: I heard your phone number as [123-456-7891|1234567891]. Is that right?
+  - user_input: 'yes'
+    agent_response: Hmm, I [can't find] an order with those details. Would you like to try again, using a different [phone number] or your [order number]?
+  - user_input: '123-456-7891'
+    agent_response: I heard your [phone number] as [123-456-7891|1234567891]. Is that right?
+  - user_input: 'yes'
+    agent_response: Hmm, I still can't find an order with those details. Would you like me to transfer you to someone who can help?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '1234567891'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '1234567891'
+  - name: save_phone_number
+    arguments: {}
