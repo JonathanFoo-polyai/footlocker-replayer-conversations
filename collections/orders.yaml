@@ -265,6 +265,8 @@ conversations:
     agent_response: "I can see there are a few items in your order.
      You've got a pair of [Nike Air Huarache] in size [09.5|9.5], and a pair of [Nike Air Max 97] in size [11.5].
      Is there a specific item you want to know more about?"
+  - user_input: 'yeah the Nike air max 97'
+    agent_response: "The [Nike Air Max 97] in size 11.5, Black/White/Anthracite has [shipped]! Would you like me to send you a text with the [tracking link]?"
   function_calls:
   - name: start_verify_user
     arguments: {}
@@ -284,6 +286,9 @@ conversations:
     arguments: {}
   - name: determine_order_status
     arguments: {}
+  - name: validate_order_line
+    arguments:
+      order_line: 2
 - conversation_id: PICK_MULTI_LOCATIONS
   variant_id: null
   language: en-US
@@ -381,5 +386,3 @@ conversations:
   - name: validate_order_line
     arguments:
       order_line: 2
-  - name: determine_order_status
-    arguments: {}

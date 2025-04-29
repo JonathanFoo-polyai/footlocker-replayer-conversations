@@ -131,6 +131,97 @@ conversations:
     arguments: {}
   - name: determine_order_status
     arguments: {}
+- conversation_id: PHONE_NUMBER_DENY_PHONE_NUMBER_AFFIRM_POSTCODE_AFFIRM_ORDER_NUMBER_AFFIRM
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order
+    agent_response: Would you like me to help you track your order?
+  - user_input: 'yes'
+    agent_response: Could you please provide the [phone number] associated with your
+      order?
+  - user_input: '6505555555'
+    agent_response: I heard your phone number as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'no'
+    agent_response: Got it! Let's try again. Could you please provide the correct [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your phone number as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated
+      with your order?
+  - user_input: '94043'
+    agent_response: I heard your [billing zipcode] as [94043]. Is that right?
+  - user_input: 'yes'
+    agent_response: Great! Now, could you please tell me the last six digits of your order number? You can find it in your confirmation email.
+  - user_input: '556992'
+    agent_response: I heard the last six digits of your [order number] as [556992]. Is that right?
+  - user_input: 'yes'
+    agent_response: I can see an order here for some Timberland Field Boot Mid shoes in a size 06.5 that's currently being processed. We'll send you an email with a tracking link as soon as it's shipped! Is there anything else I can help you with?
+  function_calls:
+  - name: start_verify_user
+    arguments: {}
+  - name: lookup_order
+    arguments: {}
+  - name: validate_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: read_back_details_are_incorrect
+    arguments: {}
+  - name: validate_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: user_details_saved
+    arguments: {}
+  - name: validate_zipcode
+    arguments:
+      zipcode: '94043'
+  - name: user_details_saved
+    arguments: {}
+  - name: validate_order_number
+    arguments:
+      order_number: '556992'
+  - name: user_details_saved
+    arguments: {}
+  - name: determine_order_status
+    arguments: {}
+- conversation_id: PHONE_NUMBER_NOT_FOUND_PHONE_NUMBER_AFFIRM
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order
+    agent_response: Would you like me to help you track your order?
+  - user_input: 'yes'
+    agent_response: Could you please provide the [phone number] associated with your
+      order?
+  - user_input: '123 456 7891'
+    agent_response: I heard your phone number as [123-456-7891|1234567891|123 456 7891]. Is that right?
+  - user_input: 'yes'
+    agent_response: I couldn't find an order with that phone number. Would you like to try again with a different [phone number] or your [order number]?
+  - user_input: '2244654878'
+    agent_response: I heard your phone number as [224-456-4878|2244654878]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+  function_calls:
+  - name: start_verify_user
+    arguments: {}
+  - name: lookup_order
+    arguments: {}
+  - name: validate_phone_number
+    arguments:
+      phone_number: '1234567891'
+  - name: user_details_saved
+    arguments: {}
+  - name: use_different_number
+    arguments: {}
+  - name: validate_phone_number
+    arguments:
+      phone_number: '2244654878'
+  - name: user_details_saved
+    arguments: {}
 - conversation_id: INVALID_PHONE_NUMBER_X2_FULL_ORDER_NUMBER_AFFIRM_ZIPCODE_AFFIRM
   variant_id: null
   language: en-US
@@ -286,4 +377,142 @@ conversations:
     arguments:
       summary: 'User was unable to provide a valid phone number or order number.'
   - name: end_function
+    arguments: {}
+- conversation_id: INVALID_PHONE_NUMBER_X2_NO_AND_SPEAK_TO_SOMEONE
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order
+    agent_response: Would you like me to help you track your order?
+  - user_input: 'yes'
+    agent_response: Could you please provide the [phone number] associated with your
+      order?
+  - user_input: '650555555'
+    agent_response: Hmm, I'm not sure I got that down right. Can I have your phone number again, including the area code?
+  - user_input: '650555555'
+    agent_response: Hmm, that doesn't seem to be working. Can I try with your order number instead? This is the long number that starts with a 'U' and can be found in your confirmation email.
+  - user_input: no, transfer me to a representative
+    agent_response: '[Let me transfer you to someone who can help. One second.]'
+  function_calls:
+  - name: start_verify_user
+    arguments: {}
+  - name: lookup_order
+    arguments: {}
+  - name: validate_phone_number
+    arguments:
+      phone_number: '650555555'
+  - name: validate_phone_number
+    arguments:
+      phone_number: '650555555'
+  - name: transfer_call
+    arguments: {}
+  - name: create_call_summary
+    arguments:
+      summary: 'User was unable to provide a valid phone number or order number.'
+  - name: end_function
+    arguments: {}
+- conversation_id: INVALID_PHONE_NUMBER_VALID_PHONE_NUMBER_AFFIRM_POSTCODE_AFFIRM_ORDER_NUMBER_AFFIRM
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order
+    agent_response: Would you like me to help you track your order?
+  - user_input: 'yes'
+    agent_response: Could you please provide the [phone number] associated with your
+      order?
+  - user_input: '650555555'
+    agent_response: Hmm, I'm not sure I got that down right. Can I have your phone number again, including the area code?
+  - user_input: '6505555555'
+    agent_response: I heard your phone number as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated
+      with your order?
+  - user_input: '94043'
+    agent_response: I heard your [billing zipcode] as [94043]. Is that right?
+  - user_input: 'yes'
+    agent_response: Great! Now, could you please tell me the last six digits of your order number? You can find it in your confirmation email.
+  - user_input: '556992'
+    agent_response: I heard the last six digits of your [order number] as [556992]. Is that right?
+  - user_input: 'yes'
+    agent_response: I can see an order here for some Timberland Field Boot Mid shoes in a size 06.5 that's currently being processed. We'll send you an email with a tracking link as soon as it's shipped! Is there anything else I can help you with?
+  function_calls:
+  - name: start_verify_user
+    arguments: {}
+  - name: lookup_order
+    arguments: {}
+  - name: validate_phone_number
+    arguments:
+      phone_number: '650555555'
+  - name: validate_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: user_details_saved
+    arguments: {}
+  - name: validate_zipcode
+    arguments:
+      zipcode: '94043'
+  - name: user_details_saved
+    arguments: {}
+  - name: validate_order_number
+    arguments:
+      order_number: '556992'
+  - name: user_details_saved
+    arguments: {}
+  - name: determine_order_status
+    arguments: {}
+- conversation_id: INVALID_PHONE_NUMBER_X2_VALID_FULL_ORDER_NUMBER_AFFIRM_ZIPCODE_AFFIRM
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order
+    agent_response: Would you like me to help you track your order?
+  - user_input: 'yes'
+    agent_response: Could you please provide the [phone number] associated with your
+      order?
+  - user_input: '650555555'
+    agent_response: Hmm, I'm not sure I got that down right. Can I have your phone number again, including the area code?
+  - user_input: '650555555'
+    agent_response: Hmm, that doesn't seem to be working. Can I try with your order number instead? This is the long number that starts with a 'U' and can be found in your confirmation email.
+  - user_input: U7298796189598617600
+    agent_response: I heard your full order number as [U7298796189598617600]. Is that
+      right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated
+      with your order?
+  - user_input: '48237'
+    agent_response: I heard your [billing zipcode] as [48237]. Is that right?
+  - user_input: 'yes'
+    agent_response: "I can see that your order for the Nike React Infinity 2 - Women's\
+      \ in size 07.0 has been cancelled. Unfortunately, this happened because the\
+      \ item is no longer available. \n\nBut don't worry! Any pending charge on your\
+      \ card will disappear within 5 to 7 business days, so you won't be charged for\
+      \ the purchase. \n\nIs there anything else I can help you with?"
+  function_calls:
+  - name: start_verify_user
+    arguments: {}
+  - name: lookup_order
+    arguments: {}
+  - name: validate_phone_number
+    arguments:
+      phone_number: '650555555'
+  - name: validate_phone_number
+    arguments:
+      phone_number: '650555555'
+  - name: validate_full_order_number
+    arguments:
+      order_number: U7298796189598617600
+  - name: user_details_saved
+    arguments: {}
+  - name: validate_zipcode
+    arguments:
+      zipcode: '48237'
+  - name: user_details_saved
+    arguments: {}
+  - name: determine_order_status
     arguments: {}
