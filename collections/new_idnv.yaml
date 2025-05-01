@@ -249,6 +249,40 @@ conversations:
       order_number: 'U7314230965750992896'
   - name: save_full_order_number
     arguments: {}
+- conversation_id: PHONE_NUMBER_INVALID_X2_FULL_ORDER_NUMBER_V2
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '650123456'
+    agent_response: Hmm, I'm [not sure I got that down right]. Can I have your [phone number] again, including the area code?
+  - user_input: '650123456'
+    agent_response: Hmm, that doesn't seem to be working. I can try with your [order number] instead?
+  - user_input: 'U7314230965750992896'
+    agent_response: I heard your order number as [U7314230965750992896]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '650123456'
+  - name: verify_phone_number
+    arguments:
+      phone_number: '650123456'
+  - name: try_collect_full_order_number
+    arguments: {}
+  - name: verify_full_order_number
+    arguments:
+      order_number: 'U7314230965750992896'
+  - name: save_full_order_number
+    arguments: {}
 - conversation_id: PHONE_NUMBER_NOT_FOUND_X2_FULL_ORDER_NUMBER
   variant_id: null
   language: en-US

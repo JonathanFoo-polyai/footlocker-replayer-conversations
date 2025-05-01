@@ -16,7 +16,7 @@ conversations:
   - user_input: 650 555 5555
     agent_response: I heard your phone number as [650-555-5555|6505555555]. Is that right?
   - user_input: 'yes'
-    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+    agent_response: Awesome! Now, could you please tell me the billing [zipcode|zip code] associated with your order?
   - user_input: '94043'
     agent_response: I heard your billing zipcode as [94043]. Is that right?
   - user_input: 'yes'
@@ -58,9 +58,9 @@ conversations:
   - user_input: 650 555 5555
     agent_response: I heard your phone number as [650-555-5555|6505555555]. Is that right?
   - user_input: 'yes'
-    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+    agent_response: Awesome! Now, could you please tell me the billing [zipcode|zip code] associated with your order?
   - user_input: '9404'
-    agent_response: Could you please provide the [billing zipcode] again? Just the first five digits will do!
+    agent_response: Could you please provide the billing [zipcode|zip code] again? Just the first five digits will do!
   - user_input: '94043'
     agent_response: I heard your billing zipcode as [94043]. Is that right?
   - user_input: 'yes'
@@ -103,11 +103,11 @@ conversations:
   - user_input: Where's my order(new)?
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
   - user_input: 913 575 2235
-    agent_response: I heard your phone number as [913-575-2235]. Is that right?
+    agent_response: I heard your phone number as [913-575-2235|9135752235]. Is that right?
   - user_input: 'yes'
-    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+    agent_response: Awesome! Now, could you please tell me the billing [zipcode|zip code] associated with your order?
   - user_input: '2811'
-    agent_response: Could you please provide the [billing zipcode] again? Just the first five digits will do!
+    agent_response: Could you please provide the billing [zipcode|zip code] again? Just the first five digits will do!
   - user_input: 'sure, 2810'
     agent_response: Hmm, I can't find an order with those details. Would you like me to [transfer] you to someone who can help?
   function_calls:
@@ -126,6 +126,38 @@ conversations:
   - name: verify_zipcode 
     arguments:
       billing_zipcode: '2810'
+- conversation_id: PHONE_NUMBER_ZIPCODE_INVALID_X2_V2
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: 913 575 2235
+    agent_response: I heard your phone number as [913-575-2235|9135752235]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zipcode|zip code] associated with your order?
+  - user_input: '2811'
+    agent_response: Could you please provide the billing [zipcode|zip code] again? Just the first five digits will do!
+  - user_input: '2811'
+    agent_response: Hmm, I can't find an order with those details. Would you like me to [transfer] you to someone who can help?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '9135752235'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_zipcode 
+    arguments:
+      billing_zipcode: '2811'
+  - name: verify_zipcode 
+    arguments:
+      billing_zipcode: '2811'
 - conversation_id: PHONE_NUMBER_ZIPCODE_DENY_ZIPCODE_AFFIRM_ORDER_NUMBER
   variant_id: null
   language: en-US
@@ -137,11 +169,11 @@ conversations:
   - user_input: 650 555 5555
     agent_response: I heard your phone number as [650-555-5555]. Is that right?
   - user_input: 'yes'
-    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+    agent_response: Awesome! Now, could you please tell me the [billing zipcode|billing zip code] associated with your order?
   - user_input: '94043'
     agent_response: I heard your billing zipcode as [94043]. Is that right?
   - user_input: 'no'
-    agent_response: Sorry, I didn't catch that. Could you please repeat the [billing zipcode] associated with your order?
+    agent_response: Sorry, I didn't catch that. Could you please repeat the [billing zipcode|billing zip code] associated with your order?
   - user_input: '94043'
     agent_response: I heard your billing zipcode as [94043]. Is that right?
   - user_input: 'yes'
@@ -186,13 +218,13 @@ conversations:
   - user_input: Where's my order(new)?
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
   - user_input: 913 575 2235
-    agent_response: I heard your phone number as [913-575-2235]. Is that right?
+    agent_response: I heard your phone number as [913-575-2235|9135752235]. Is that right?
   - user_input: 'yes'
-    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+    agent_response: Awesome! Now, could you please tell me the billing [zipcode|zip code] associated with your order?
   - user_input: '28117'
     agent_response: I heard your billing zipcode as [28117]. Is that right?
   - user_input: 'no'
-    agent_response: Sorry, I didn't catch that. Could you please repeat the [billing zipcode] associated with your order?
+    agent_response: Sorry, I didn't catch that. Could you please repeat the billing [zipcode|zip code] associated with your order?
   - user_input: '28117'
     agent_response: I heard your billing zipcode as [28117]. Is that right?
   - user_input: 'no'
@@ -232,13 +264,13 @@ conversations:
   - user_input: Where's my order(new)?
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
   - user_input: 913 575 2235
-    agent_response: I heard your phone number as [913-575-2235]. Is that right?
+    agent_response: I heard your phone number as [913-575-2235|9135752235]. Is that right?
   - user_input: 'yes'
-    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+    agent_response: Awesome! Now, could you please tell me the billing [zipcode|zip code] associated with your order?
   - user_input: '12345'
     agent_response: I heard your billing zipcode as [12345]. Is that right?
   - user_input: 'yes'
-    agent_response: Hmm, it seems those details [don't match] what I have. Would you like to try verifying the [billing zipcode] again?
+    agent_response: Hmm, it seems those details [don't match] what I have. Would you like to try verifying the billing [zipcode|zip code] again?
   - user_input: '28117'
     agent_response: I heard your billing zipcode as [28117]. Is that right?
   - user_input: 'yes'
@@ -272,13 +304,13 @@ conversations:
   - user_input: Where's my order(new)?
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
   - user_input: 913 575 2235
-    agent_response: I heard your phone number as [913-575-2235]. Is that right?
+    agent_response: I heard your phone number as [913-575-2235|9135752235]. Is that right?
   - user_input: 'yes'
-    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+    agent_response: Awesome! Now, could you please tell me the billing [zipcode|zip code] associated with your order?
   - user_input: '12345'
     agent_response: I heard your billing zipcode as [12345]. Is that right?
   - user_input: 'yes'
-    agent_response: Hmm, it seems those details [don't match] what I have. Would you like to try verifying the [billing zipcode] again?
+    agent_response: Hmm, it seems those details [don't match] what I have. Would you like to try verifying the billing [zipcode|zip code] again?
   - user_input: '12346'
     agent_response: I heard your billing zipcode as [12346]. Is that right?
   - user_input: 'yes'
@@ -321,13 +353,13 @@ conversations:
   - user_input: Where's my order(new)?
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
   - user_input: 913 575 2235
-    agent_response: I heard your phone number as [913-575-2235]. Is that right?
+    agent_response: I heard your phone number as [913-575-2235|9135752235]. Is that right?
   - user_input: 'yes'
-    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+    agent_response: Awesome! Now, could you please tell me the billing [zipcode|zip code] associated with your order?
   - user_input: '12345'
     agent_response: I heard your billing zipcode as [12345]. Is that right?
   - user_input: 'yes'
-    agent_response: Hmm, it seems those details [don't match] what I have. Would you like to try verifying the [billing zipcode] again?
+    agent_response: Hmm, it seems those details [don't match] what I have. Would you like to try verifying the billing [zipcode|zip code] again?
   - user_input: '12346'
     agent_response: I heard your billing zipcode as [12346]. Is that right?
   - user_input: 'yes'
@@ -371,7 +403,7 @@ conversations:
   - user_input: 650 555 5555
     agent_response: I heard your phone number as [650-555-5555|6505555555]. Is that right?
   - user_input: 'yes'
-    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+    agent_response: Awesome! Now, could you please tell me the billing [zipcode|zip code] associated with your order?
   - user_input: '94043'
     agent_response: I heard your billing zipcode as [94043]. Is that right?
   - user_input: 'yes'
@@ -418,7 +450,7 @@ conversations:
   - user_input: 913 575 2235
     agent_response: I heard your phone number as [913-575-2235|9135752235]. Is that right?
   - user_input: 'yes'
-    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+    agent_response: Awesome! Now, could you please tell me the billing [zipcode|zip code] associated with your order?
   - user_input: '28117'
     agent_response: I heard your billing zipcode as [28117]. Is that right?
   - user_input: 'yes'
@@ -467,7 +499,7 @@ conversations:
   - user_input: 913 575 2235
     agent_response: I heard your phone number as [913-575-2235|9135752235]. Is that right?
   - user_input: 'yes'
-    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+    agent_response: Awesome! Now, could you please tell me the billing [zipcode|zip code] associated with your order?
   - user_input: '28117'
     agent_response: I heard your billing zipcode as [28117]. Is that right?
   - user_input: 'yes'
@@ -522,7 +554,7 @@ conversations:
   - user_input: 650 555 5555
     agent_response: I heard your phone number as [650-555-5555|6505555555]. Is that right?
   - user_input: 'yes'
-    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+    agent_response: Awesome! Now, could you please tell me the billing [zipcode|zip code] associated with your order?
   - user_input: '94043'
     agent_response: I heard your billing zipcode as [94043]. Is that right?
   - user_input: 'yes'
@@ -582,7 +614,7 @@ conversations:
   - user_input: 650 555 5555
     agent_response: I heard your phone number as [650-555-5555|6505555555]. Is that right?
   - user_input: 'yes'
-    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+    agent_response: Awesome! Now, could you please tell me the billing [zipcode|zip code] associated with your order?
   - user_input: '94043'
     agent_response: I heard your billing zipcode as [94043]. Is that right?
   - user_input: 'yes'
