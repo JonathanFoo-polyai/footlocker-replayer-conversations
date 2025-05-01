@@ -529,3 +529,40 @@ conversations:
       order_number: 'U1234567891234567890'
   - name: save_full_order_number
     arguments: {}
+- conversation_id: PHONE_NUMBER_DONT_KNOW_FULL_ORDER_NUMBER_ZIPCODE
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: i don't know
+    agent_response: No worries if you don't have the phone number! Let's try a different approach. Can you provide me with your [order number] instead?
+  - user_input: 'U7314230965750992896'
+    agent_response: I heard your order number as [U7314230965750992896]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the [billing zipcode] associated with your order?
+  - user_input: '94043'
+    agent_response: I heard your billing zipcode as [94043]. Is that right?
+  - user_input: 'yes'
+    agent_response: I can see an order here for some [Nike Air Max 90] shoes in size 11, which is currently being processed. We'll send you an email with a tracking link as soon as it's shipped! Is there anything else I can help you with today?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: try_collect_full_order_number
+    arguments: {}
+  - name: verify_full_order_number
+    arguments:
+      order_number: 'U1234567891234567891'
+  - name: save_full_order_number
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      order_number: '94043'
+  - name: save_billing_zipcode
+    arguments: {}
+  - name: determine_order_status
+    arguments: {}
