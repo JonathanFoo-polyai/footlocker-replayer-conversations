@@ -1,0 +1,454 @@
+account_id: footlocker-us
+cluster: us-1
+client_env:
+- eq:sandbox
+namespace: platform-prod
+project_id: footlocker-usp
+conversations:
+- conversation_id: PHONE_NUMBER_V1
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '6505555555'
+- conversation_id: PHONE_NUMBER_V2
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '650 555 5555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '6505555555'
+- conversation_id: PHONE_NUMBER_V3
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '650 555 5555.'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '6505555555'
+- conversation_id: PHONE_NUMBER_V4
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '650 TRIPLE FIVE EIGHT OH EIGHT ONE'
+    agent_response: I heard your [phone number] as [650-555-8081|6505558081]. Is that right?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '6505558081'
+- conversation_id: PHONE_NUMBER_V5
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: Sure. It's 6505558081.
+    agent_response: I heard your [phone number] as [650-555-8081|6505558081]. Is that right?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '6505558081'
+- conversation_id: PHONE_NUMBER_CORRECTION
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: Sure. 650 540 sorry it is 650 555 8081.
+    agent_response: I heard your [phone number] as [650-555-8081|6505558081]. Is that right?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '6505558081'
+- conversation_id: PHONE_NUMBER_WAIT
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: wait.
+    agent_response: No problem, take your time! Just let me know when you're ready, and I'll be here to help.
+  - user_input: It's 6505558081.
+    agent_response: I heard your [phone number] as [650-555-8081|6505558081]. Is that right?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '6505558081'
+- conversation_id: PHONE_NUMBER_DONT_KNOW
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: I don't remember which phone number I used.
+    agent_response: No worries! If you can't remember the phone number, I can help you track your order with your order number instead. Do you have that handy?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: try_collect_full_order_number
+      arguments: {}
+- conversation_id: PHONE_NUMBER_DONT_KNOW_V2
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: I don't know
+    agent_response: No worries! If you can't remember the phone number, I can help you track your order with your [order number] instead. Do you have that handy?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: try_collect_full_order_number
+      arguments: {}
+- conversation_id: PHONE_NUMBER_DONT_KNOW_V3
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: I don't have it
+    agent_response: No worries! If you can't remember the phone number, I can help you track your order with your [order number] instead. Do you have that handy?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: try_collect_full_order_number
+      arguments: {}
+- conversation_id: PHONE_NUMBER_DECLINE
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: 'no'
+    agent_response: No worries! If you can't remember the phone number, I can help you track your order with your [order number] instead. Do you have that handy?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: try_collect_full_order_number
+      arguments: {}
+- conversation_id: PHONE_NUMBER_DECLINE_V2
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: I can't give you that.
+    agent_response: No worries! If you can't remember the phone number, I can help you track your order with your [order number] instead. Do you have that handy?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: try_collect_full_order_number
+      arguments: {}
+- conversation_id: PHONE_NUMBER_INVALID
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: 650 555 555.
+    agent_response: Hmm, I'm not sure I got that down right. Can I have your [phone number] [again], including the area code?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '650555555'
+- conversation_id: PHONE_NUMBER_INVALID_X2
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: 650 555 555.
+    agent_response: Hmm, I'm not sure I got that down right. Can I have your [phone number] [again], including the area code?
+  - user_input: 650 555 555.
+    agent_response: Hmm, that doesn't seem to be working. I can try with your [order number] instead?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '650555555'
+    - name: verify_phone_number
+      arguments:
+        phone_number: '650555555'
+- conversation_id: PHONE_NUMBER_INVALID_X3
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: 650 555 555.
+    agent_response: Hmm, I'm not sure I got that down right. Can I have your [phone number] [again], including the area code?
+  - user_input: 650 555 555.
+    agent_response: Hmm, that doesn't seem to be working. I can try with your [order number] instead?
+  - user_input: 650 555 555.
+    agent_response: Ok, let me put you through to a team member, one moment please!
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '650555555'
+    - name: verify_phone_number
+      arguments:
+        phone_number: '650555555'
+    - name: verify_phone_number
+      arguments:
+        phone_number: '650555555'
+    - name: transfer_call
+      arguments: {}
+    - name: create_call_summary
+      arguments: {}
+    - name: end_function
+      arguments: {}
+- conversation_id: PHONE_NUMBER_INVALID_X3_V2
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: 650 555 555.
+    agent_response: Hmm, I'm not sure I got that down right. Can I have your [phone number] [again], including the area code?
+  - user_input: 123 456 78.
+    agent_response: Hmm, that doesn't seem to be working. I can try with your [order number] instead?
+  - user_input: 112 334 5.
+    agent_response: Ok, let me put you through to a team member, one moment please!
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '650555555'
+    - name: verify_phone_number
+      arguments:
+        phone_number: '12345678'
+    - name: verify_phone_number
+      arguments:
+        phone_number: '1123345'
+    - name: transfer_call
+      arguments: {}
+    - name: create_call_summary
+      arguments: {}
+    - name: end_function
+      arguments: {}
+- conversation_id: PHONE_NUMBER_INVALID_X2_TRANSFER
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '650123456'
+    agent_response: Hmm, I'm [not sure I got that down right]. Can I have your [phone number] again, including the area code?
+  - user_input: '650-123456'
+    agent_response: Hmm, that [doesn't seem to be working]. I can try with your [order number] instead?
+  - user_input: 'no, transfer me to someone'
+    agent_response: Let me put you through to someone who can help. One sec.
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '650123456'
+  - name: verify_phone_number
+    arguments:
+      phone_number: '650123456'
+  - name: transfer_call
+    arguments: {}
+  - name: create_call_summary
+    arguments: {}
+  - name: end_function
+    arguments: {}
+- conversation_id: PHONE_NUMBER_NOT_FOUND_TRY_ORDER_NUMBER
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '1234567891'
+    agent_response: I heard your phone number as [123-456-7891|1234567891]. Is that right?
+  - user_input: 'yes'
+    agent_response: Hmm, I [can't find] an order with those details. Would you like to try again, using a different [phone number] or your [order number]?
+  - user_input: Yeah, I'll try my order number.
+    agent_response: Can you provide me with your [order number] instead? This is the long number that starts with a 'U' and can be found in your confirmation email.
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '1234567891'
+  - name: save_phone_number
+    arguments: {}
+  - name: try_collect_full_order_number
+    arguments: {}
+- conversation_id: PHONE_NUMBER_NOT_FOUND_FULL_ORDER_NUMBER
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '1234567891'
+    agent_response: I heard your phone number as [123-456-7891|1234567891]. Is that right?
+  - user_input: 'yes'
+    agent_response: Hmm, I [can't find] an order with those details. Would you like to try again, using a different [phone number] or your [order number]?
+  - user_input: U7314230965750992896
+    agent_response: I heard your order number as [U7314230965750992896]. Is that right?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '1234567891'
+  - name: save_phone_number
+    arguments: {}
+  - name: try_collect_full_order_number
+    arguments: {}
+  - name: verify_full_order_number
+    arguments:
+      order_number: U7298796189598617600
+- conversation_id: PHONE_NUMBER_NOT_FOUND_PHONE_NUMBER_NOT_FOUND_TRANSFER
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '1234567891'
+    agent_response: I heard your phone number as [123-456-7891|1234567891]. Is that right?
+  - user_input: 'yes'
+    agent_response: Hmm, I [can't find] an order with those details. Would you like to try again, using a different [phone number] or your [order number]?
+  - user_input: '123-456-7891'
+    agent_response: I heard your [phone number] as [123-456-7891|1234567891]. Is that right?
+  - user_input: 'yes'
+    agent_response: Hmm, I still [can't find] an order with those details. Would you like me to [transfer] you to someone who can help?
+  - user_input: 'sure'
+    agent_response: Let me [put you through|transfer] to someone who can help. One sec.
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '1234567891'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '1234567891'
+  - name: save_phone_number
+    arguments: {}
+  - name: transfer_call
+    arguments: {}
+  - name: create_call_summary
+    arguments: {}
+  - name: end_function
+    arguments: {}
