@@ -5,7 +5,7 @@ client_env:
 namespace: platform-prod
 project_id: footlocker-usp
 conversations:
-- conversation_id: PHONE_NUMBER_READ_BACK_AFFIRM
+- conversation_id: ZIPCODE_READBACK_AFFIRM
   variant_id: null
   language: en-US
   turns:
@@ -17,6 +17,10 @@ conversations:
     agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
   - user_input: 'yes'
     agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '94043'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  - user_input: 'yes'
+    agent_response: Perfect! Now, could you please tell me the [last six digits] of your [order number]? You can find it in your confirmation email.
   function_calls:
   - name: track_user_order_new
     arguments: {}
@@ -27,7 +31,12 @@ conversations:
       phone_number: '6505555555'
   - name: save_phone_number
     arguments: {}
-- conversation_id: PHONE_NUMBER_READ_BACK_AFFIRM_V2
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94043'
+  - name: save_billing_zipcode
+    arguments: {}
+- conversation_id: ZIPCODE_READBACK_AFFIRM_V2
   variant_id: null
   language: en-US
   turns:
@@ -39,6 +48,10 @@ conversations:
     agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
   - user_input: 'correct'
     agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '94043'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  - user_input: 'yes'
+    agent_response: Perfect! Now, could you please tell me the [last six digits] of your [order number]? You can find it in your confirmation email.
   function_calls:
   - name: track_user_order_new
     arguments: {}
@@ -49,7 +62,12 @@ conversations:
       phone_number: '6505555555'
   - name: save_phone_number
     arguments: {}
-- conversation_id: PHONE_NUMBER_READ_BACK_MAYBE_V1
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94043'
+  - name: save_billing_zipcode
+    arguments: {}
+- conversation_id: ZIPCODE_READBACK_MAYBE
   variant_id: null
   language: en-US
   turns:
@@ -59,8 +77,12 @@ conversations:
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
   - user_input: '6505555555'
     agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'correct'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '94043'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
   - user_input: 'sure'
-    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+    agent_response: Perfect! Now, could you please tell me the [last six digits] of your [order number]? You can find it in your confirmation email.
   function_calls:
   - name: track_user_order_new
     arguments: {}
@@ -71,7 +93,12 @@ conversations:
       phone_number: '6505555555'
   - name: save_phone_number
     arguments: {}
-- conversation_id: PHONE_NUMBER_READ_BACK_MAYBE_V2
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94043'
+  - name: save_billing_zipcode
+    arguments: {}
+- conversation_id: ZIPCODE_READBACK_MAYBE_V2
   variant_id: null
   language: en-US
   turns:
@@ -81,8 +108,12 @@ conversations:
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
   - user_input: '6505555555'
     agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'correct'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '94043'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
   - user_input: 'I think so'
-    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+    agent_response: Perfect! Now, could you please tell me the [last six digits] of your [order number]? You can find it in your confirmation email.
   function_calls:
   - name: track_user_order_new
     arguments: {}
@@ -93,7 +124,12 @@ conversations:
       phone_number: '6505555555'
   - name: save_phone_number
     arguments: {}
-- conversation_id: PHONE_NUMBER_DENY_PHONE_NUMBER_AFFIRM
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94043'
+  - name: save_billing_zipcode
+    arguments: {}
+- conversation_id: ZIPCODE_READBACK_DENY_ZIPCODE_READBACK_AFFIRM
   variant_id: null
   language: en-US
   turns:
@@ -101,14 +137,18 @@ conversations:
     agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
   - user_input: Where's my order(new)?
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
-  - user_input: '6505555555'
-    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
-  - user_input: 'no'
-    agent_response: I understand. Could you please provide the [phone number] associated with your order?
   - user_input: '6505555555'
     agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
   - user_input: 'yes'
     agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '94043'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  - user_input: 'no'
+    agent_response: Sorry, can I have your billing zipcode again?
+  - user_input: '94043'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  - user_input: 'yes'
+    agent_response: Perfect! Now, could you please tell me the [last six digits] of your [order number]? You can find it in your confirmation email.
   function_calls:
   - name: track_user_order_new
     arguments: {}
@@ -117,14 +157,19 @@ conversations:
   - name: verify_phone_number
     arguments:
       phone_number: '6505555555'
-  - name: deny_phone_number_read_back
-    arguments: {}
-  - name: verify_phone_number
-    arguments:
-      phone_number: '6505555555'
   - name: save_phone_number
     arguments: {}
-- conversation_id: PHONE_NUMBER_DENY_PHONE_NUMBER_DENY
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94043'
+  - name: deny_billing_zipcode_readback
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94043'
+  - name: save_billing_zipcode
+    arguments: {}
+- conversation_id: ZIPCODE_READBACK_DENY_ZIPCODE_READBACK_DENY
   variant_id: null
   language: en-US
   turns:
@@ -132,12 +177,16 @@ conversations:
     agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
   - user_input: Where's my order(new)?
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
-  - user_input: '4089040720'
-    agent_response: I heard your [phone number] as [408-904-0720|4089040720]. Is that right?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '94043'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
   - user_input: 'no'
-    agent_response: I understand. Could you please provide the [phone number] associated with your order?
-  - user_input: '4089040720'
-    agent_response: I heard your [phone number] as [408-904-0720|4089040720]. Is that right?
+    agent_response: Sorry, can I have your billing zipcode again?
+  - user_input: '94043'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
   - user_input: 'no'
     agent_response: Ok, let me put you through to a team member, one moment please!
   function_calls:
@@ -147,13 +196,18 @@ conversations:
     arguments: {}
   - name: verify_phone_number
     arguments:
-      phone_number: '4089040720'
-  - name: deny_phone_number_read_back
+      phone_number: '6505555555'
+  - name: save_phone_number
     arguments: {}
-  - name: verify_phone_number
+  - name: verify_zipcode
     arguments:
-      phone_number: '4089040720'
-  - name: deny_phone_number_read_back
+      billing_zipcode: '94043'
+  - name: deny_billing_zipcode_readback
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94043'
+  - name: deny_billing_zipcode_readback
     arguments: {}
   - name: transfer_call
     arguments: {}
@@ -161,7 +215,7 @@ conversations:
     arguments: {}
   - name: end_function
     arguments: {}
-- conversation_id: PHONE_NUMBER_DENY_PHONE_NUMBER_DENY_V2
+- conversation_id: ZIPCODE_READBACK_DENY_ZIPCODE_READBACK_DENY_V2
   variant_id: null
   language: en-US
   turns:
@@ -169,12 +223,16 @@ conversations:
     agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
   - user_input: Where's my order(new)?
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
-  - user_input: '4089040720'
-    agent_response: I heard your [phone number] as [408-904-0720|4089040720]. Is that right?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '94043'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
   - user_input: that's not right
-    agent_response: I understand. Could you please provide the [phone number] associated with your order?
-  - user_input: '4089040720'
-    agent_response: I heard your [phone number] as [408-904-0720|4089040720]. Is that right?
+    agent_response: Sorry, can I have your billing zipcode again?
+  - user_input: '94043'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
   - user_input: that's wrong!
     agent_response: Ok, let me put you through to a team member, one moment please!
   function_calls:
@@ -184,13 +242,18 @@ conversations:
     arguments: {}
   - name: verify_phone_number
     arguments:
-      phone_number: '4089040720'
-  - name: deny_phone_number_read_back
+      phone_number: '6505555555'
+  - name: save_phone_number
     arguments: {}
-  - name: verify_phone_number
+  - name: verify_zipcode
     arguments:
-      phone_number: '4089040720'
-  - name: deny_phone_number_read_back
+      billing_zipcode: '94043'
+  - name: deny_billing_zipcode_readback
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94043'
+  - name: deny_billing_zipcode_readback
     arguments: {}
   - name: transfer_call
     arguments: {}
@@ -198,7 +261,7 @@ conversations:
     arguments: {}
   - name: end_function
     arguments: {}
-- conversation_id: PHONE_NUMBER_READ_BACK_CORRECTION_AFFIRM
+- conversation_id: ZIPCODE_READBACK_CORRECTION_AFFIRM
   variant_id: null
   language: en-US
   turns:
@@ -206,28 +269,37 @@ conversations:
     agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
   - user_input: Where's my order(new)?
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
-  - user_input: '6505555500'
-    agent_response: I heard your [phone number] as [650-555-5500|6505555500]. Is that right?
-  - user_input: 'No, it is 6505555555'
+  - user_input: '6505555555'
     agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
   - user_input: 'yes'
     agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '94040'
+    agent_response: I heard your [zipcode] as [94040]. Is that right?
+  - user_input: 'no, it is 94043'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  - user_input: 'yes'
+    agent_response: Perfect! Now, could you please tell me the [last six digits] of your [order number]? You can find it in your confirmation email.
   function_calls:
   - name: track_user_order_new
     arguments: {}
   - name: check_caller_number
-    arguments: {}
-  - name: verify_phone_number
-    arguments:
-      phone_number: '6505555500'
-  - name: deny_phone_number_read_back
     arguments: {}
   - name: verify_phone_number
     arguments:
       phone_number: '6505555555'
   - name: save_phone_number
     arguments: {}
-- conversation_id: PHONE_NUMBER_READ_BACK_CORRECTION_INVALID
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94040'
+  - name: deny_billing_zipcode_readback
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94043'
+  - name: save_billing_zipcode
+    arguments: {}
+- conversation_id: ZIPCODE_READBACK_CORRECTION_INVALID
   variant_id: null
   language: en-US
   turns:
@@ -235,10 +307,14 @@ conversations:
     agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
   - user_input: Where's my order(new)?
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
-  - user_input: '6505555500'
-    agent_response: I heard your [phone number] as [650-555-5500|6505555500]. Is that right?
-  - user_input: 'No, it is 650555555'
-    agent_response: Hmm, I'm not sure I got that down right. Can I have your [phone number] [again], including the area code?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '94043'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  - user_input: 'no, it is 1234'
+    agent_response: Hmm, it looks like that zipcode isn't quite right. Can you give me your billing [zip code|zipcode] again? I just need the first 5 digits.
   function_calls:
   - name: track_user_order_new
     arguments: {}
@@ -246,13 +322,18 @@ conversations:
     arguments: {}
   - name: verify_phone_number
     arguments:
-      phone_number: '6505555500'
-  - name: deny_phone_number_read_back
+      phone_number: '6505555555'
+  - name: save_phone_number
     arguments: {}
-  - name: verify_phone_number
+  - name: verify_zipcode
     arguments:
-      phone_number: '650555555'
-- conversation_id: PHONE_NUMBER_NOT_FOUND
+      billing_zipcode: '94043'
+  - name: deny_billing_zipcode_readback
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '1234'
+- conversation_id: ZIPCODE_NOT_FOUND_ZIPCODE_NOT_FOUND_ZIPCODE_NOT_FOUND
   variant_id: null
   language: en-US
   turns:
@@ -260,10 +341,22 @@ conversations:
     agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
   - user_input: Where's my order(new)?
     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
-  - user_input: '1234567891'
-    agent_response: I heard your phone number as [123-456-7891|1234567891]. Is that right?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
   - user_input: 'yes'
-    agent_response: Hmm, I [can't find] an order with those details. Would you like to try again, using a different [phone number] or your [order number]?
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '12345'
+    agent_response: I heard your [zipcode] as [12345]. Is that right?
+  - user_input: 'yes'
+    agent_response: Hmm, it seems those details don't match what I have. Would you like to try verifying the billing [zipcode] again?
+  - user_input: '12345'
+    agent_response: I heard your [zipcode] as [12345]. Is that right?
+  - user_input: 'yes'
+    agent_response: Hmm, it seems those details don't match what I have.  Would you like me to [transfer] you to someone who can help?
+  - user_input: 'can you try 12345'
+    agent_response: I heard your [zipcode] as [12345]. Is that right?
+  - user_input: 'yes'
+    agent_response: Let me put you through to someone who can help. One sec.
   function_calls:
   - name: track_user_order_new
     arguments: {}
@@ -271,79 +364,23 @@ conversations:
     arguments: {}
   - name: verify_phone_number
     arguments:
-      phone_number: '1234567891'
+      phone_number: '6505555555'
   - name: save_phone_number
     arguments: {}
-- conversation_id: PHONE_NUMBER_NOT_FOUND_PHONE_NUMBER_NOT_FOUND
-  variant_id: null
-  language: en-US
-  turns:
-  - user_input: ''
-    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
-  - user_input: Where's my order(new)?
-    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
-  - user_input: '1234567891'
-    agent_response: I heard your phone number as [123-456-7891|1234567891]. Is that right?
-  - user_input: 'yes'
-    agent_response: Hmm, I [can't find] an order with those details. Would you like to try again, using a different [phone number] or your [order number]?
-  - user_input: '123-456-7891'
-    agent_response: I heard your [phone number] as [123-456-7891|1234567891]. Is that right?
-  - user_input: 'yes'
-    agent_response: Hmm, I still [can't find] an order with those details. Would you like me to [transfer] you to someone who can help?
-  function_calls:
-  - name: track_user_order_new
-    arguments: {}
-  - name: check_caller_number
-    arguments: {}
-  - name: verify_phone_number
+  - name: verify_zipcode
     arguments:
-      phone_number: '1234567891'
-  - name: save_phone_number
+      billing_zipcode: '12345'
+  - name: save_billing_zipcode
     arguments: {}
-  - name: verify_phone_number
+  - name: verify_zipcode
     arguments:
-      phone_number: '1234567891'
-  - name: save_phone_number
+      billing_zipcode: '12345'
+  - name: save_billing_zipcode
     arguments: {}
-- conversation_id: PHONE_NUMBER_NOT_FOUND_PHONE_NUMBER_NOT_FOUND_PHONE_NUMBER_NOT_FOUND
-  variant_id: null
-  language: en-US
-  turns:
-  - user_input: ''
-    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
-  - user_input: Where's my order(new)?
-    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
-  - user_input: '1234567891'
-    agent_response: I heard your phone number as [123-456-7891|1234567891]. Is that right?
-  - user_input: 'yes'
-    agent_response: Hmm, I [can't find] an order with those details. Would you like to try again, using a different [phone number] or your [order number]?
-  - user_input: '123-456-7891'
-    agent_response: I heard your [phone number] as [123-456-7891|1234567891]. Is that right?
-  - user_input: 'yes'
-    agent_response: Hmm, I still [can't find] an order with those details. Would you like me to [transfer] you to someone who can help?
-  - user_input: '1234567891'
-    agent_response: I heard your [phone number] as [123-456-7891|1234567891]. Is that right?
-  - user_input: 'yes'
-    agent_response: Let me [put you through|transfer] to someone who can help. One sec.
-  function_calls:
-  - name: track_user_order_new
-    arguments: {}
-  - name: check_caller_number
-    arguments: {}
-  - name: verify_phone_number
+  - name: verify_zipcode
     arguments:
-      phone_number: '1234567891'
-  - name: save_phone_number
-    arguments: {}
-  - name: verify_phone_number
-    arguments:
-      phone_number: '1234567891'
-  - name: save_phone_number
-    arguments: {}
-  - name: verify_phone_number
-    arguments:
-      phone_number: '1234567891'
-  - name: save_phone_number
+      billing_zipcode: '12345'
+  - name: save_billing_zipcode
     arguments: {}
   - name: transfer_call
     arguments: {}

@@ -1,0 +1,534 @@
+account_id: footlocker-us
+cluster: us-1
+client_env:
+- eq:sandbox
+namespace: platform-prod
+project_id: footlocker-usp
+conversations:
+- conversation_id: ZIPCODE_V1
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '94043'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94043'
+- conversation_id: ZIPCODE_V2
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '94043.'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94043'
+- conversation_id: ZIPCODE_V3
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: Sure. It's 94043.
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94043'
+- conversation_id: ZIPCODE_V3
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: nine oh triple three
+    agent_response: I heard your [zipcode] as [90333]. Is that right?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '90333'
+- conversation_id: ZIPCODE_V4
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: 94043-1351
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '90333'
+- conversation_id: ZIPCODE_V5
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '940431351'
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '90333'
+- conversation_id: ZIPCODE_CORRECTION
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: Sure. 94040 sorry it is 94043.
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '6505558081'
+    - name: save_phone_number
+      arguments: {}
+    - name: verify_zipcode
+      arguments:
+        billing_zipcode: '90333'
+- conversation_id: ZIPCODE_WAIT
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: wait.
+    agent_response: No problem, take your time! Just let me know when you're ready, and I'll be here to help.
+  - user_input: It is 94043.
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '6505558081'
+    - name: save_phone_number
+      arguments: {}
+    - name: verify_zipcode
+      arguments:
+        billing_zipcode: '90333'
+- conversation_id: ZIPCODE_DONT_KNOW
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: I don't know.
+    agent_response: Ok, let me put you through to a team member, one moment please!
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '6505558081'
+    - name: save_phone_number
+      arguments: {}
+    - name: transfer_call
+      arguments: {}
+    - name: create_call_summary
+      arguments: {}
+    - name: end_function
+      arguments: {}
+- conversation_id: ZIPCODE_DONT_KNOW_V2
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: I don't remember which address I put.
+    agent_response: Ok, let me put you through to a team member, one moment please!
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '6505558081'
+    - name: save_phone_number
+      arguments: {}
+    - name: transfer_call
+      arguments: {}
+    - name: create_call_summary
+      arguments: {}
+    - name: end_function
+      arguments: {}
+- conversation_id: ZIPCODE_CLARIFY
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: Sorry. Do you want the billing zipcode or postal zipcode?
+    agent_response: I just need the [billing] zipcode associated with your order. Could you share that with me?
+  - user_input: sure, it is 94043
+    agent_response: I heard your [zipcode] as [94043]. Is that right?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '94043'
+- conversation_id: ZIPCODE_DECLINE
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: 'no'
+    agent_response: Ok, let me put you through to a team member, one moment please!
+  function_calls:
+    - name: track_user_order_new
+      arguments: {}
+    - name: check_caller_number
+      arguments: {}
+    - name: verify_phone_number
+      arguments:
+        phone_number: '6505558081'
+    - name: save_phone_number
+      arguments: {}
+    - name: transfer_call
+      arguments: {}
+    - name: create_call_summary
+      arguments: {}
+    - name: end_function
+      arguments: {}
+- conversation_id: ZIPCODE_INVALID
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '1234'
+    agent_response: Hmm, it looks like that zipcode isn't quite right. Can you give me your billing [zip code|zipcode] again? I just need the first 5 digits.
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '1234'
+- conversation_id: ZIPCODE_INVALID_X2
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '1234'
+    agent_response: Hmm, it looks like that zipcode isn't quite right. Can you give me your billing [zip code|zipcode] again? I just need the first 5 digits.
+  - user_input: '1234'
+    agent_response: Hmm, that still doesn't work. Would you like me to [transfer] you to someone who can help?
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '1234'
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '1234'
+- conversation_id: ZIPCODE_INVALID_X3
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '1234'
+    agent_response: Hmm, it looks like that zipcode isn't quite right. Can you give me your billing [zip code|zipcode] again? I just need the first 5 digits.
+  - user_input: '1234'
+    agent_response: Hmm, that still doesn't work. Would you like me to [transfer] you to someone who can help?
+  - user_input: '1234'
+    agent_response: Ok, let me put you through to a team member, one moment please!
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '1234'
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '1234'
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '1234'
+  - name: transfer_call
+    arguments: {}
+  - name: create_call_summary
+    arguments: {}
+  - name: end_function
+    arguments: {}
+- conversation_id: ZIPCODE_INVALID_X2_TRANSFER
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '1234'
+    agent_response: Hmm, it looks like that zipcode isn't quite right. Can you give me your billing [zip code|zipcode] again? I just need the first 5 digits.
+  - user_input: '1234'
+    agent_response: Hmm, that still doesn't work. Would you like me to [transfer] you to someone who can help?
+  - user_input: 'yes'
+    agent_response: Let me put you through to someone who can help. One sec.
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '1234'
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '1234'
+  - name: transfer_call
+    arguments: {}
+  - name: create_call_summary
+    arguments: {}
+  - name: end_function
+    arguments: {}
+- conversation_id: ZIPCODE_NOT_FOUND_ZIPCODE_NOT_FOUND_TRANSFER
+  variant_id: null
+  language: en-US
+  turns:
+  - user_input: ''
+    agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+  - user_input: Where's my order(new)?
+    agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+  - user_input: '6505555555'
+    agent_response: I heard your [phone number] as [650-555-5555|6505555555]. Is that right?
+  - user_input: 'yes'
+    agent_response: Awesome! Now, could you please tell me the billing [zip code|zipcode] associated with your order?
+  - user_input: '12345'
+    agent_response: I heard your [zipcode] as [12345]. Is that right?
+  - user_input: 'yes'
+    agent_response: Hmm, it seems those details don't match what I have. Would you like to try verifying the billing [zipcode] again?
+  - user_input: '12345'
+    agent_response: I heard your [zipcode] as [12345]. Is that right?
+  - user_input: 'yes'
+    agent_response: Hmm, it seems those details don't match what I have. Would you like me to [transfer] you to someone who can help?
+  - user_input: 'sure'
+    agent_response: Let me put you through to someone who can help. One sec.
+  function_calls:
+  - name: track_user_order_new
+    arguments: {}
+  - name: check_caller_number
+    arguments: {}
+  - name: verify_phone_number
+    arguments:
+      phone_number: '6505555555'
+  - name: save_phone_number
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '12345'
+  - name: save_billing_zipcode
+    arguments: {}
+  - name: verify_zipcode
+    arguments:
+      billing_zipcode: '12345'
+  - name: save_billing_zipcode
+    arguments: {}
+  - name: transfer_call
+    arguments: {}
+  - name: create_call_summary
+    arguments: {}
+  - name: end_function
+    arguments: {}

@@ -452,3 +452,34 @@ conversations:
     arguments: {}
   - name: end_function
     arguments: {}
+# - conversation_id: PHONE_NUMBER_INVALID_X2_DONT_KNOW
+#   variant_id: null
+#   language: en-US
+#   turns:
+#   - user_input: ''
+#     agent_response: Hey, thanks for calling Foot Locker. I'm Max. How can I help?
+#   - user_input: Where's my order(new)?
+#     agent_response: I can help track your order! Could you please provide the [phone number] associated with your order?
+#   - user_input: 650 555 555.
+#     agent_response: Hmm, I'm not sure I got that down right. Can I have your [phone number] [again], including the area code?
+#   - user_input: 650 555 555.
+#     agent_response: Hmm, that doesn't seem to be working. I can try with your [order number] instead?
+#   - user_input: I don't know my order number
+#     agent_response: Let me [put you through|transfer] to someone who can help. One sec.
+#   function_calls:
+#     - name: track_user_order_new
+#       arguments: {}
+#     - name: check_caller_number
+#       arguments: {}
+#     - name: verify_phone_number
+#       arguments:
+#         phone_number: '650555555'
+#     - name: verify_phone_number
+#       arguments:
+#         phone_number: '650555555'
+#     - name: transfer_call
+#       arguments: {}
+#     - name: create_call_summary
+#       arguments: {}
+#     - name: end_function
+#       arguments: {}
